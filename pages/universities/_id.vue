@@ -1,0 +1,41 @@
+<template>
+  <div>
+    <div>
+      <a :href="/universities/">Университеты</a>
+    </div>
+    <div>
+      <h1> {{ university.Название }} </h1>
+      <dl class="dl-horizontal">
+        <dt> Код: </dt>
+        <dd> {{ university.Код }} </dd>
+        <dt> Описание: </dt>
+        <dd> {{ university.Описание }} </dd>
+        <dt> E-mail: </dt>
+        <dd>  {{ university.Email }} </dd>
+        <dt> Телефон: </dt>
+        <dd> {{ university.Телефон }} </dd>
+        <dt> Специальности: </dt>
+        <dd> 
+          <ul 
+            v-for="speciality in university.специальность"
+            :key="speciality">
+            <li >
+              <a :href="'/specialities/' + speciality.id"> {{ speciality.Название }} </a>
+            </li>
+          </ul>
+        </dd>
+      </dl>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  asyncData: async function({$axios, params}) {
+    const response = await $axios.get('http://185.158.153.91:1380/universities?%D0%9A%D0%BE%D0%B4='+ params.id)
+    return {
+       university: response.data[0]
+    }
+  }
+}
+</script>
