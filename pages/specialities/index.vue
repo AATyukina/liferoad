@@ -19,7 +19,7 @@
       </div>
     </div>
     <div v-else> 
-      <h2>Oops! Page not found! But don't worry!</h2>
+      <h2>Oops! Page not found! But don't worry! <br> Error code  {{ code }}</h2>
     </div>
   </div>
 </template>
@@ -36,7 +36,8 @@ export default {
     }
     catch (error){
         return{
-          flag: false
+          flag: false, 
+          code: error.response.status
         }
     }
  
