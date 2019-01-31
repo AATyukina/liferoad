@@ -9,12 +9,6 @@
     <div class="content-secondary">
       <h3> <a href="specialities/"> Специальности </a></h3>
     </div>
-    <div class="content-secondary">
-      <h3> <a href="contacts"> Contacts </a></h3>
-    </div>
-    <div class="content-secondary">
-      <h3> <a href="contributors"> Conributors </a></h3>
-    </div>
   </div>
 </template>
 
