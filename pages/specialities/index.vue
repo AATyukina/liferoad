@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div>
-      <a href="../">Главная страница</a>
-    </div>
+    <topmenu />
     <div v-if="flag">
       <div>
         <h3> Специальности </h3>
@@ -25,7 +23,13 @@
 </template>
 
 <script>
+import Topmenu from '~/components/Topmenu.vue'
 export default {
+  components: {
+    Topmenu
+  },
+
+
   asyncData: async function({$axios}) {
     try{
       const response = await $axios.get('http://185.158.153.91:1380/specialities')
@@ -40,42 +44,6 @@ export default {
           code: error.response.status
         }
     }
- 
-    // const response = await $axios.get('http://185.158.153.91:1380/specialities')
-    // return {
-    //   specialities: response.data
-    // }
-
-  //     $axios
-  //     .get('http://185.158.153.91:1380/specialities')
-  //     .then(response => {
-  //         console.log(response)
-  //         specialities = response.data
-  //         flag = true 
-  //     })
-  //     .catch(error => {
-  //       console.log(error)
-  //       this.flag = false 
-  //     })
-  //     .finally(() => {
-  //       return {
-  //         specialities, 
-  //         flag
-  //       }
-  //     })
-
-  // }
-  // $axios.get('http://185.158.153.91:1380/specialities')
-  //     .then(function (response) {
-  //       return {
-  //         specialities: response.data
-  //       }
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error); 
-  //     });
-  // }
-  // выводит надпись "Специальности", а дальше не отображает их список
 }
 }
 </script>

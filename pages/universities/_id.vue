@@ -1,10 +1,8 @@
 <template>
   <div>
-    <div>
-      <a :href="/universities/">Университеты</a>
-    </div>
-    <div>
-      <h1> {{ university.Название }} </h1>
+    <topmenu />
+    <div class="cont">
+      <h1>{{ university.Название }}</h1>
       <dl class="dl-horizontal">
         <dt> Код: </dt>
         <dd> {{ university.Код }} </dd>
@@ -30,7 +28,12 @@
 </template>
 
 <script>
+import Topmenu from '~/components/Topmenu.vue'
 export default {
+  components: {
+    Topmenu
+  },
+
   asyncData: async function({$axios, params}) {
     const response = await $axios.get('http://185.158.153.91:1380/universities?%D0%9A%D0%BE%D0%B4='+ params.id)
     return {
@@ -39,3 +42,9 @@ export default {
   }
 }
 </script>
+
+<style>
+ .cont{
+   padding: 10px;
+ }
+</style>

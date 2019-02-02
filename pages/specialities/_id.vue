@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div>
-      <a :href="/specialities/">Специальности</a>
-    </div>
+    <topmenu />
     <h1> {{ speciality.Название }} </h1>
     <dl class="dl-horizontal">
       <dt> Описание: </dt>
@@ -22,11 +20,16 @@
 </template>
 
 <script>
-import axios from 'axios'
+import Topmenu from '~/components/Topmenu.vue'
 
 export default {
+
+  components: {
+    Topmenu
+  },
+
   asyncData: async function({$axios, params}) {
-    const response = await axios.get('http://185.158.153.91:1380/specialities/'+ params.id)
+    const response = await $axios.get('http://185.158.153.91:1380/specialities/'+ params.id)
     return {
        speciality: response.data
     }
