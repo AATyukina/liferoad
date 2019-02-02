@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="total_container">
     <div id ="lr">
       <a 
         id="lrhref" 
@@ -13,35 +13,41 @@
     </div>
     <div class="parent">
       <div
-        v-for="page in pages"
-        :key="page"
+        v-for="item in items"
+        :key="item"
         class="child">
-        <a>{{ page.Название }}</a>
+        <a :href="'../' + item.slug">{{ item.Название }}</a>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
-   asyncData: async function({$axios}) {
-    const response = await $axios.get('http://185.158.153.91:1380/pages')
-    return{
-      pages: response.data
-    }
+   data: function(){
+     return{
+       items: []
+     }
+   },
+   mounted: async function() {
+    const response = await axios.get('http://185.158.153.91:1380/pages')
+    this.items = response.data
    }
 }
 </script>
 
 <style>
+ #total_container{
+ background-color: lightpink;
+}
  #lr{
-   background-color: lightgray;
    padding: 10px;
    display: inline-flex;
    justify-content: flex-end;
    width: 100%;  
    justify-content: space-between;
-   align-items: center;
+   align-items: baseline;
  }
  #lrhref{
    font-family: 'Times New Roman', Times, serif; 
@@ -60,7 +66,11 @@ export default {
   width: 100%;  
 }
 .child{
-  background-color: darkseagreen;
+  font-family: 'Times New Roman', Times, serif; 
+  font-size: 130%; 
+  margin-right: 10px;
+  margin-left: 10px;
+  color: white;
 }
 .unspechref{
   font-family: 'Times New Roman', Times, serif; 
@@ -68,7 +78,3 @@ export default {
   color: white;
 }
 </style>
-
-
-
-
