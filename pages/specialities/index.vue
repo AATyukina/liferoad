@@ -28,8 +28,6 @@ export default {
   components: {
     Topmenu
   },
-
-
   asyncData: async function({$axios}) {
     try{
       const response = await $axios.get('http://185.158.153.91:1380/specialities')

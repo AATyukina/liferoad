@@ -12,6 +12,9 @@
         href="../specialities/">Специальности</a>
     </div>
     <div class="parent">
+      <a
+        href="../news/1" 
+        class="child">Новости</a>
       <div
         v-for="item in items"
         :key="item"
