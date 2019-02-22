@@ -18,13 +18,14 @@
 
 <script>
 import Topmenu from '~/components/Topmenu.vue'
+import constants from "assets/constants";
 export default {
   components: {
     Topmenu
   },
 
   asyncData: async function({$axios}) {
-    const response = await $axios.get('http://185.158.153.91:1380/universities')
+    const response = await $axios.get(constants.baseUrl + '/universities')
     return {
       universities: response.data
     }

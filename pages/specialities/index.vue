@@ -23,14 +23,15 @@
 </template>
 
 <script>
-import Topmenu from '~/components/Topmenu.vue'
+import Topmenu from '~/components/Topmenu.vue';
+import constants from "assets/constants";
 export default {
   components: {
     Topmenu
   },
   asyncData: async function({$axios}) {
     try{
-      const response = await $axios.get('http://185.158.153.91:1380/specialities')
+      const response = await $axios.get(constants.baseUrl + '/specialities')
         return {
            specialities: response.data,
            flag:true

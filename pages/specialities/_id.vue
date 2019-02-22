@@ -20,7 +20,8 @@
 </template>
 
 <script>
-import Topmenu from '~/components/Topmenu.vue'
+import Topmenu from '~/components/Topmenu.vue';
+import constants from "assets/constants";
 
 export default {
 
@@ -29,7 +30,7 @@ export default {
   },
 
   asyncData: async function({$axios, params}) {
-    const response = await $axios.get('http://185.158.153.91:1380/specialities/'+ params.id)
+    const response = await $axios.get(constants.baseUrl + '/specialities/'+ params.id)
     return {
        speciality: response.data
     }

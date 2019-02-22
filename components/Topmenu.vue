@@ -1,32 +1,39 @@
 <template>
-  <div id="total_container">
-    <div id ="lr">
-      <a 
-        id="lrhref" 
-        href="../">Путевка в жизнь</a>
-      <a 
-        class="unspechref"
-        href="../universities/">ВУЗы</a>
+  <div class="total_container">
+    <div class="href_container">
       <a
-        class="unspechref"
-        href="../specialities/">Специальности</a>
-    </div>
-    <div class="parent">
-      <a
-        href="../news/1" 
-        class="child">Новости</a>
-      <div
+        class="href_a"
+        href="../news/1">Новости</a> 
+      <a 
         v-for="item in items"
         :key="item"
-        class="child">
-        <a :href="'../' + item.slug">{{ item.Название }}</a>
-      </div>
+        :href="'../' + item.slug"
+        class="href_a">{{ item.Название }}</a>
+    </div>
+    <div class="img_container">
+      <a>
+        <img 
+          id="img_twitter"
+          src="~/static/images/header_footer/twitter.png">
+      </a>
+      <a>
+        <img 
+          id="img_facebook"
+          src="~/static/images/header_footer/facebook.png">
+      </a>
+      <a>
+        <img 
+          id="img_mail"
+          src="~/static/images/header_footer/mail.png">
+      </a>
     </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import constants from "assets/constants";
+
 export default {
    data: function(){
      return{
@@ -34,50 +41,53 @@ export default {
      }
    },
    mounted: async function() {
-    const response = await axios.get('http://185.158.153.91:1380/pages')
+    const response = await axios.get(constants.baseUrl + '/pages')
     this.items = response.data
    }
 }
 </script>
 
 <style>
- #total_container{
- background-color: lightpink;
+#img_twitter{
+  width: 24px;
+  height: 19.64px;
+  margin-right: 52px;
 }
- #lr{
-   padding: 10px;
-   display: inline-flex;
-   justify-content: flex-end;
-   width: 100%;  
-   justify-content: space-between;
-   align-items: baseline;
- }
- #lrhref{
-   font-family: 'Times New Roman', Times, serif; 
-   font-size: 300%; 
-   flex-grow: 0.5;
-   color: black;
- }
- #otherhref{
+#img_facebook{
+  width: 24px;
+  height: 24px;
+  margin-right: 52px;
+}
+#img_mail{
+  width: 26px;
+  height: 17.23px;
+  margin-right: 52px;
+}
+.href_a{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  font-size: 15px;
+  color: #2C373F;
+  margin-right: 52px;
+}
+.total_container{
+  margin-top: 49px;
+  padding-right: 117px; 
+  padding-left: 117px;
+  margin-bottom: 47px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.img_container{
   display: inline-flex;
-  justify-content: flex-end;
-  width:75%;
- }
- .parent{
-	display: inline-flex;
-  justify-content: flex-end;
-  width: 100%;  
+  justify-content: space-between;
+  align-items: center;
 }
-.child{
-  font-family: 'Times New Roman', Times, serif; 
-  font-size: 130%; 
-  margin-right: 10px;
-  margin-left: 10px;
-  color: white;
-}
-.unspechref{
-  font-family: 'Times New Roman', Times, serif; 
-  font-size: 200%; 
-  color: white;
+.href_container{
+  display: inline-flex;
+  justify-content: space-between;
 }
 </style>
