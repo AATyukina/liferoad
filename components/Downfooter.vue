@@ -46,6 +46,7 @@ export default {
     padding-right: 117px;
     padding-bottom: 41px;
     padding-top: 43px;
+    margin-top: 85px;
   }
   #project_name{
     font-family: Montserrat;

@@ -71,6 +71,7 @@ export default {
   font-size: 15px;
   color: #2C373F;
   margin-right: 52px;
+  text-decoration: none;
 }
 .total_container{
   margin-top: 49px;
