@@ -56,7 +56,7 @@ export default {
   height: 64px;
   /* left: 117px;
   top: 189px; */
-  font-family: Roboto Slab;
+  font-family: 'Roboto Slab', serif;
   font-style: normal;
   font-weight: bold;
   line-height: normal;
@@ -78,7 +78,7 @@ export default {
   height: 235px;
   /* left: 117px;
   top: 296px; */
-  font-family: Montserrat;
+  font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: normal;
   line-height: 29px;

@@ -48,6 +48,8 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto+Slab');
+
 #img_twitter{
   width: 24px;
   height: 19.64px;
@@ -64,7 +66,7 @@ export default {
   margin-right: 52px;
 }
 .href_a{
-  font-family: Montserrat;
+  font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: 500;
   line-height: normal;

@@ -37,6 +37,8 @@ export default {
 
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto+Slab');
+
   .total_footer_container{
     border-top: 1px solid #C0C3C6;
     display: flex;
@@ -49,7 +51,7 @@ export default {
     margin-top: 85px;
   }
   #project_name{
-    font-family: Montserrat;
+    font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
