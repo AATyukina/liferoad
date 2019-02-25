@@ -3,32 +3,25 @@
     <topmenu />
     <middle />
     <div id="spec_group">
-      <div class="spec_group_text">IT</div>
+      <div class="spec_group_text"><a>IT</a></div>
     </div>
+
     <div id="total_box">
-      <div id="sp_box">
-        <div 
-          v-for="(item, index) in specialities"
-          :key="item">
-          <div 
-            v-if="activeItem == index"
-            class="href_filled_box">
-            <a 
-              href="#text_box"
-              @click="activeItem = index">{{ item.Название }}</a>
-          </div>
-          <div 
-            v-else
-            class="href_empty_box">
-            <a 
-              href="#text_box"
-              @click="activeItem = index">{{ item.Название }}</a>
-          </div>
-        </div> 
-      </div>
+      <ul id="href_container">
+        <li 
+          v-for="(item, index) in specialities" 
+          :key="item.Название"
+          class="href_box">
+          <a
+            class="href_specialities"
+            href="#desc_specialities"
+            @click="activeItem = index"> {{ item.Название }} </a>
+        </li>
+      </ul>
       <div id="text_box">
         <p>{{ specialities[activeItem].Описание }}</p>
       </div>
+
     </div>
     <div id="column_text">
       <p>Разнообразный и богатый опыт говорит нам, что высококачественный 
@@ -56,7 +49,8 @@ export default {
   components: {
     Topmenu,
     Downfooter,
-    Middle
+    Middle,
+    SpecialDesc
   },
   asyncData: async function({$axios}) {
       const response = await $axios.get(constants.baseUrl + '/specialities')
@@ -70,6 +64,53 @@ export default {
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto+Slab');
+#href_container{
+  padding-left: 0px;
+  z-index: 2;
+}
+.href_specialities {
+  display: block;
+  width: 366px;
+  height: 56px;
+  padding: 17px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 18px;
+  text-decoration: none;
+  color: #41505c;
+}
+.href_box{
+  position: relative;
+  list-style-type: none;
+  position: relative;
+}
+.href_specialities:focus {
+  background-image: url('/images/middle/rectangle.png');
+  background-size: cover;
+  font-weight: bold;
+  color: #ffffff;
+}
+#text_box{
+  position: relative;
+  left: -1.4%;
+  z-index: 1;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 11px rgba(85, 102, 129, 0.15);
+  width: 816px;
+  padding-right: 64px;
+  padding-left: 73px;
+  padding-top: 33px;
+  
+
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 29px;
+  font-size: 15px;
+  color: #1D262D;
+}
 #spec_group{
   margin-bottom: 40px;
   margin-left: 117px;
@@ -95,59 +136,6 @@ export default {
   display: flex;
   margin-left: 117px;
   margin-right: 157px; 
-  justify-content: space-between;
-}
-#text_box{
-  background: #FFFFFF;
-  box-shadow: 0px 2px 11px rgba(85, 102, 129, 0.15);
-  width: 69%;/* width: 816px; */
-  padding-right: 64px;
-  padding-left: 73px;
-  padding-top: 33px;
-  
-
-  font-family: 'Montserrat', sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  line-height: 29px;
-  font-size: 15px;
-  color: #1D262D;
-}
-/* #sp_box{
-  width: 366px;
-} */
-.href_filled_box{
-  background-image:url("/images/middle/rectangle2.png");
-  padding-left: 18.7px;
-  padding-top: 17px;
-  padding-bottom: 17px;
-  height: 56px;
-  width:366px ;
-}
-.href_empty_box{
-  padding-left: 18.7px;
-  padding-top: 17px;
-  padding-bottom: 17px;
-  height: 56px;
-  width: 366px;
-}
-div.href_filled_box a{
-  font-family: 'Montserrat', sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  line-height: normal;
-  font-size: 18px;
-
-  color: #FFFFFF;
-}
-div.href_empty_box a{
-  font-family: 'Montserrat', sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  line-height: normal;
-  font-size: 18px;
-
-  color: #1D262D;
 }
 #column_text{
   font-family: 'Montserrat', sans-serif;
