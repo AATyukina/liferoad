@@ -20,6 +20,7 @@
       </ul>
       <div id="text_box">
         <p>{{ specialities[activeItem].Описание }}</p>
+        <a :href="'specialities/' + specialities[activeItem].id"><u><i>Подробнее</i></u></a>
       </div>
 
     </div>
@@ -49,8 +50,7 @@ export default {
   components: {
     Topmenu,
     Downfooter,
-    Middle,
-    SpecialDesc
+    Middle
   },
   asyncData: async function({$axios}) {
       const response = await $axios.get(constants.baseUrl + '/specialities')
