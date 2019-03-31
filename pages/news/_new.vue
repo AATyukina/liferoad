@@ -60,7 +60,15 @@ export default {
           code: error.response.status
         }
   } 
-  } 
+  },
+     head() {
+    return{
+      title: 'Новости. Проект "Путевка в жизнь"',
+      meta: [
+        {hid: 'description', 'name':'description', 'content': 'Новости. Профориентационный проект "Путевка в жизнь" для абитуриентов Нижегородской области и их родителей.'}
+      ]
+    }
+  }
 }
 </script>
 

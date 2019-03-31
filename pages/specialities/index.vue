@@ -43,6 +43,14 @@ export default {
           code: error.response.status
         }
     }
-}
+},
+ head() {
+    return{
+      title: 'Специальности. Проект "Путевка в жизнь"',
+      meta: [
+        {hid: 'description', 'name':'description', 'content': 'Профориентационный проект "Путевка в жизнь" для абитуриентов Нижегородской области и их родителей. Специальности.'}
+      ]
+    }
+  }
 }
 </script>

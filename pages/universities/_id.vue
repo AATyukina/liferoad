@@ -40,6 +40,14 @@ export default {
     return {
        university: response.data[0]
     }
+  },
+     head() {
+    return{
+      title: this.university.Название + '. Проект "Путевка в жизнь"',
+      meta: [
+        {hid: 'description', 'name':'description', 'content': 'Профориентационный проект "Путевка в жизнь" для абитуриентов Нижегородской области и их родителей. Университет' + this.university.Название}
+      ]
+    }
   }
 }
 </script>

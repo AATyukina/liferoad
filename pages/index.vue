@@ -58,6 +58,14 @@ export default {
            specialities: response.data,
            activeItem: 0
       }
+  }, 
+  head() {
+    return{
+      title: 'Проект "Путевка в жизнь"',
+      meta: [
+        {hid: 'description', 'name':'description', 'content': 'Профориентационный проект "Путевка в жизнь" для абитуриентов Нижегородской области и их родителей'}
+      ]
+    }
   }
 }
 </script>
@@ -66,7 +74,12 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto+Slab');
 #href_container{
   padding-left: 0px;
-  z-index: 2;
+  /* z-index: 2; */
+
+  opacity: 1;
+  transition: width 0.1s, opacity 0.4s;
+  z-index: 999999;
+
 }
 .href_specialities {
   display: block;

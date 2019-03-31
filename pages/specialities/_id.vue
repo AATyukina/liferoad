@@ -44,6 +44,14 @@ export default {
        speciality: response.data,
        activeItem: 0
     }
+  },
+  head() {
+    return{
+      title: 'Специальность: ' + this.speciality.Название + '. Проект "Путевка в жизнь"',
+      meta: [
+        {hid: 'description', 'name':'description', 'content': 'Профориентационный проект "Путевка в жизнь" для абитуриентов Нижегородской области и их родителей. Специальность: ' + this.speciality.Название}
+      ]
+    }
   }
 }
 </script>

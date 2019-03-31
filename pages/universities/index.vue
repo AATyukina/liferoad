@@ -29,6 +29,14 @@ export default {
     return {
       universities: response.data
     }
+  },
+    head() {
+    return{
+      title: 'Университеты. Проект "Путевка в жизнь"',
+      meta: [
+        {hid: 'description', 'name':'description', 'content': 'Профориентационный проект "Путевка в жизнь" для абитуриентов Нижегородской области и их родителей. Университеты'}
+      ]
+    }
   }
 }
 </script>

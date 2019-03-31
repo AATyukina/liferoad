@@ -32,6 +32,14 @@ asyncData: async function({$axios, params}) {
     return {
      flag: false
     }
+  },
+   head() {
+    return{
+      title: this.page.Название + '. Проект "Путевка в жизнь"',
+      meta: [
+        {hid: 'description', 'name':'description', 'content': 'Профориентационный проект "Путевка в жизнь" для абитуриентов Нижегородской области и их родителей. Страница: ' + this.page.Название}
+      ]
+    }
   }
 }
 </script>
