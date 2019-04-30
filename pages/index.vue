@@ -165,5 +165,7 @@ export default {
   margin-top: 93px;
   margin-right: 117px;
 
+  border-bottom: 1px solid #C0C3C6;;
+
 }
 </style>

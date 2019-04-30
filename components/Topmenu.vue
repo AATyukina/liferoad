@@ -1,31 +1,44 @@
 <template>
   <div class="total_container">
     <div class="href_container">
+      <a 
+        class="href_a"
+        href="/">Главная страница</a>
       <a
         class="href_a"
-        href="../news/1">Новости</a> 
+        href="/universities/">ВУЗы</a>
       <a 
-        v-for="item in items"
-        :key="item"
-        :href="'../' + item.slug"
-        class="href_a">{{ item.Название }}</a>
+        class="href_a"
+        href="/specialities/">Специальности</a>
     </div>
-    <div class="img_container">
-      <a>
-        <img 
-          id="img_twitter"
-          src="~/static/images/header_footer/twitter.png">
-      </a>
-      <a>
-        <img 
-          id="img_facebook"
-          src="~/static/images/header_footer/facebook.png">
-      </a>
-      <a>
-        <img 
-          id="img_mail"
-          src="~/static/images/header_footer/mail.png">
-      </a>
+    <div class="down_container">
+      <div class="href_container">
+        <a
+          class="href_a"
+          href="/news/1">Новости</a> 
+        <a 
+          v-for="item in items"
+          :key="item"
+          :href="'/' + item.slug"
+          class="href_a">{{ item.Название }}</a>
+      </div>
+      <div class="img_container">
+        <a>
+          <img 
+            id="img_twitter"
+            src="~/static/images/header_footer/twitter.png">
+        </a>
+        <a>
+          <img 
+            id="img_facebook"
+            src="~/static/images/header_footer/facebook.png">
+        </a>
+        <a>
+          <img 
+            id="img_mail"
+            src="~/static/images/header_footer/mail.png">
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -79,7 +92,11 @@ export default {
   margin-top: 49px;
   padding-right: 117px; 
   padding-left: 117px;
-  margin-bottom: 47px; 
+  padding-bottom: 49px; 
+
+  border-bottom: 1px solid #C0C3C6;
+}
+.down_container{
   display: flex;
   justify-content: space-between;
   align-items: center;
