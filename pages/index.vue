@@ -24,7 +24,7 @@
       </div>
 
     </div>
-    <div id="column_text">
+    <div id="column_text_one">
       <p>Разнообразный и богатый опыт говорит нам, что высококачественный 
       прототип будущего проекта способствует повышению качества 
       благоприятных перспектив! Господа, современная методология 
@@ -150,7 +150,7 @@ export default {
   margin-left: 117px;
   margin-right: 157px; 
 }
-#column_text{
+#column_text_one{
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -164,8 +164,6 @@ export default {
   margin-left: 124px;
   margin-top: 93px;
   margin-right: 117px;
-
-  border-bottom: 1px solid #C0C3C6;;
 
 }
 </style>
