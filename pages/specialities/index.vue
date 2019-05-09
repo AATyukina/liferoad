@@ -1,19 +1,15 @@
 <template>
-  <div>
+  <div class="total">
     <topmenu />
-    <div v-if="flag">
-      <div>
-        <h3> Специальности </h3>
-      </div>
-      <div>
-        <ul 
-          v-for="speciality in specialities"
-          :key="speciality"
-          class="list-unstyled">
-          <li >
-            <a :href="speciality.id"> {{ speciality.Название }} </a>
-          </li>
-        </ul> 
+    <div 
+      v-if="flag"
+      class="sp_container">
+      <h3 class="sp_title"> Специальности </h3>
+      <div
+        v-for="speciality in specialities"
+        :key="speciality"
+        class="sp_unit">
+        <a :href="speciality.id"> {{ speciality.Название }} </a>
       </div>
     </div>
     <div v-else> 
@@ -54,3 +50,48 @@ export default {
   }
 }
 </script>
+
+<style>
+.total{
+  width: 2000px;
+  margin: 0 auto;
+}
+.sp_container{
+  margin-left: 117px;
+    margin-top: 46px;
+    margin-right: 117px;
+    margin-bottom: 80px;
+}
+.sp_title{
+width: 238px;
+    height: 32px;
+
+   font-family: 'Roboto Slab', serif;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+  font-size: 38px;
+  text-transform: uppercase;
+  color: #5d3dc6;
+  margin-bottom: 63px;
+}
+.sp_unit{
+  margin-top: 30px;
+  height: 50px;
+width: auto;
+  box-shadow: 0px 1px 4px #ebe8e8;
+  border-radius: 1px;
+}
+.sp_unit a{
+  width: 380px;
+  height: 32px;
+
+  font-family: 'Roboto Slab', serif;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 32px;
+  text-transform: uppercase;
+
+  color: #1D262D;
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="total">
     <topmenu />
     <h1> {{ speciality.Название }} </h1>
     <div v-html="$md.render(speciality.Полное)" />
@@ -57,6 +57,10 @@ export default {
 </script>
 
 <style>
+.total{
+  width: 2000px;
+  margin: 0 auto;
+}
 .prof_container{
   display: inline-flex; 
   justify-content: flex-start;

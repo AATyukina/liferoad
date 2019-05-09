@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="total">
     <topmenu />
     <div id="univer_cont">
 
@@ -150,6 +150,10 @@ export default {
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto+Slab');
+.total{
+  width: 2000px;
+  margin: 0 auto;
+}
 #univer_cont{
   margin-left: 157px;
   margin-top: 46px;

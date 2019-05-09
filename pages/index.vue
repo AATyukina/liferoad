@@ -1,9 +1,16 @@
 <template>
-  <div class="wrapper">
+  <div class="total">
     <topmenu />
     <middle />
     <div id="spec_group">
-      <div class="spec_group_text"><a>IT</a></div>
+      <div 
+        v-for="direction in directions"
+        :key="direction"
+        class="spec_group_text">
+        <a 
+          href="#total_box"
+          @click="selectDirection(direction)">{{ direction.Название }}</a>
+      </div>
     </div>
 
     <div id="total_box">
@@ -18,7 +25,9 @@
             @click="activeItem = index"> {{ item.Название }} </a>
         </li>
       </ul>
-      <div id="text_box">
+      <div 
+        v-if="specialities[activeItem]"
+        id="text_box">
         <p>{{ specialities[activeItem].Описание }}</p>
         <a :href="'specialities/' + specialities[activeItem].id"><u><i>Подробнее</i></u></a>
       </div>
@@ -54,11 +63,18 @@ export default {
   },
   asyncData: async function({$axios}) {
       const response = await $axios.get(constants.baseUrl + '/specialities')
+      const directions = await $axios.get(constants.baseUrl + '/directions')
         return {
            specialities: response.data,
-           activeItem: 0
+           activeItem: 0, 
+           directions: directions.data
       }
   }, 
+  methods: {
+    selectDirection: function(direction){
+      this.specialities = direction.специальность;
+    }
+  },
   head() {
     return{
       title: 'Проект "Путевка в жизнь"',
@@ -72,6 +88,10 @@ export default {
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto+Slab');
+.total{
+  width: 2000px;
+  margin: 0 auto;
+}
 #href_container{
   padding-left: 0px;
   /* z-index: 2; */
@@ -99,19 +119,20 @@ export default {
   list-style-type: none;
   position: relative;
 }
-.href_specialities:focus {
+/* .href_specialities:focus {
   background-image: url('/images/middle/rectangle.png');
   background-size: cover;
   font-weight: bold;
   color: #ffffff;
-}
+} */
 #text_box{
   position: relative;
-  left: -1.4%;
-  z-index: 1;
+  /* left: -1.4%;
+  z-index: 1; */
+
   background: #FFFFFF;
   box-shadow: 0px 2px 11px rgba(85, 102, 129, 0.15);
-  width: 816px;
+  width: auto;
   padding-right: 64px;
   padding-left: 73px;
   padding-top: 33px;
@@ -127,10 +148,22 @@ export default {
 #spec_group{
   margin-bottom: 40px;
   margin-left: 117px;
-  display: flex;
 }
 .spec_group_text{
-  font-family: 'Roboto Slab', serif;
+  display: inline-block;
+  
+  width: 240px;
+
+  margin: 40px 0;
+
+  /* padding-bottom: 6px;
+  padding-right: 19px;
+  padding-left: 19px;
+
+  border-bottom: 4px solid #FE5E5D; */
+}
+.spec_group_text a {
+font-family: 'Roboto Slab', serif;
   font-style: normal;
   font-weight: bold;
   line-height: normal;
@@ -138,12 +171,6 @@ export default {
   text-align: center;
   text-transform: uppercase;
   color: #FE5E5D;
-
-  padding-bottom: 6px;
-  padding-right: 19px;
-  padding-left: 19px;
-
-  border-bottom: 4px solid #FE5E5D;
 }
 #total_box{
   display: flex;

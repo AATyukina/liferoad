@@ -1,9 +1,15 @@
 <template>
-  <div>
+  <div class="total">
     <topmenu />
-    <div v-if="flag">
-      <h3>{{ n.Название }}</h3>
-      <p>{{ n.Полно }}</p>
+    <div 
+      v-if="flag"
+      class="new_container">
+      <div class="new_name">
+        <h3>{{ n.Название }}</h3>
+      </div>
+      <div class="new_description">
+        <p>{{ n.Полно }}</p>
+      </div>
     </div>
     <div v-else>
       <h2>Oops! Page not found! But don't worry! <br> Error code  {{ code }}</h2>
@@ -44,3 +50,40 @@ export default {
   }
 }
 </script>
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto+Slab');
+.total{
+  width: 2000px;
+  margin: 0 auto;
+}
+.new_container{
+  margin-left: 117px;
+    margin-top: 46px;
+    margin-right: 117px;
+    margin-bottom: 80px;
+}
+.new_name{
+    width: 380px;
+  height: 32px;
+
+  font-family: 'Roboto Slab', serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px;
+  text-transform: uppercase;
+
+  color: #1D262D;
+}
+.new_description{
+  margin-top: 40px;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 29px;
+
+  color: #1D262D;
+}
+</style>
